@@ -34,9 +34,27 @@ def claim_space(move, board, player):
   return board
 
 def check_winner(board, player):
+  # Check Horizontal Win
   for row in board:
+    row_count = 0
     for cell in row:
-      
+      if cell == player:
+        row_count += 1
+        print("rowcount", row_count)
+        if row_count == 3:
+          return player
+
+    # Check Vertical Win
+    for num in range(0, 3):
+      column_count = 0
+      for row in board:
+        if row[num] == player:
+          column_count += 1
+          print("colcount", column_count)
+          if column_count == 3:
+            return player
+    return None
+
 
 
 while True:
@@ -55,7 +73,8 @@ while True:
   else:
     print("Invalid Move!")
   # Check for Winner:
-  if check_winner(board, player):
+  winner = check_winner(board, player)
+  if winner:
     # Display win and init
     print(f"Player {player} wins")
   # Change Player:
