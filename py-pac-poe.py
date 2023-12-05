@@ -24,13 +24,19 @@ def convert_move(move):
   return converted_move.replace("c", "2")
 
 def check_valid_move(move):
-  return
+  print("checkvalid called, move:", move)
+  if len(move) == 2 and move.isnumeric():
+    return True
 
 def claim_space(move, board, player):
-  return
+  print("claimspace called")
+  board[int(move[0]) - 1][int(move[1])] = player
+  return board
 
 def check_winner(board, player):
-  return
+  for row in board:
+    for cell in row:
+      
 
 
 while True:
@@ -39,12 +45,15 @@ while True:
   # Input Move:
   print("player:", player)
   move = input("Please Input a Move: ")
+  if move == "quit": break
   # Convert Move:
   move = convert_move(move)
   # Check Move's Validity:
   if check_valid_move(move):
     # Change Board State:
-    claim_space(move, board, player)
+    board = claim_space(move, board, player)
+  else:
+    print("Invalid Move!")
   # Check for Winner:
   if check_winner(board, player):
     # Display win and init
