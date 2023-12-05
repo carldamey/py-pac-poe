@@ -5,11 +5,18 @@ player = players[0]
 winner = None
 
 def show_board(board):
-  print("""
+  print(f"""
+  
+      A   B   C
+	
+  1)  {str(board[0][0]).replace("'", "")} | {str(board[0][1]).replace("'", "")} | {str(board[0][2]).replace("'", "")} 
+     -----------
+  2)  {str(board[1][0]).replace("'", "")} | {str(board[1][1]).replace("'", "")} | {str(board[1][2]).replace("'", "")} 
+     -----------
+  3)  {str(board[2][0]).replace("'", "")} | {str(board[2][1]).replace("'", "")} | {str(board[2][2]).replace("'", "")} 
 
 
-
-  """)
+  """.replace("[]", " ").replace("[", "").replace("]", ""))
 
 def convert_move(move):
   converted_move = move.replace("a", "0")
@@ -58,5 +65,5 @@ if check_win_conditions(board)
   init and restart
 else player *= 1
 """
-
+# might not need the winner variable
 
