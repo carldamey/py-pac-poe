@@ -58,7 +58,7 @@ def check_winner(board, player):
     if board[2][0] == player and board[1][1] == player and board[0][2] == player:
       return player
     # Check R-L Diagonal Win
-    if board[0][2] == player and board [1][1] == player and board[2][0] == player:
+    if board[0][0] == player and board [1][1] == player and board[2][2] == player:
       return player
 
     return None
@@ -79,12 +79,14 @@ while True:
     # Change Board State:
     board = claim_space(move, board, player)
   else:
-    input("\n" * 100, "Invalid Move! <GO BACK TO MOVE INPUT>" )
+    print("\n" * 100)
+    input("Invalid Move! <GO BACK TO MOVE INPUT & DON'T SWAP PLAYER>" )
   # Check for Winner:
   winner = check_winner(board, player)
   if winner:
     # Display win and init
-    input(f"\n" * 100, "{player} wins!")
+    print("\n" * 100) 
+    input(f"{player} wins!")
   else:
     # Change Player:
     player = players[players.index(player) - 1]
