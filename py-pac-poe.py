@@ -15,7 +15,6 @@ def show_board(board):
      -----------
   3)  {str(board[2][0]).replace("'", "")} | {str(board[2][1]).replace("'", "")} | {str(board[2][2]).replace("'", "")} 
 
-
   """.replace("[]", " ").replace("[", "").replace("]", ""))
 
 def convert_move(move):
